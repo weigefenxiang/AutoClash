@@ -16,6 +16,8 @@ COPY iptables.rules /etc/iptables.rules
 #	sed -i s@/security.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list && \
 #	apt update && \
 #	apt install -y wget unzip git
+RUN apt update && \
+	apt install -y wget unzip git
 	
 RUN	wget --no-check-certificate https://github.com/Dreamacro/clash/releases/download/v1.12.0/clash-linux-amd64-v1.12.0.gz && \
 	gunzip  clash-linux-amd64-v1.12.0.gz && \
