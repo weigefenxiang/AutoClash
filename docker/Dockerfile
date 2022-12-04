@@ -8,7 +8,7 @@ LABEL maintainer=Eleven
 
 MAINTAINER author "levenwindy@gmail.com"
 
-ARG PWD=pwd
+RUN PWD=`pwd`
 
 COPY ${PWD}/docker/clash.service /etc/systemd/system/clash.service
 COPY ${PWD}/docker/iptables.rules /etc/iptables.rules
