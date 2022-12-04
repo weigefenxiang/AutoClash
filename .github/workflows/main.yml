@@ -1,1 +1,23 @@
+name: AutoClash
 
+on: [push]
+  #push: 
+    #branches:
+    #- master
+    #paths:
+    #- src/*
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    - run: wget -V
+    - run: zip -V
+    - run: python -V
+    - run: python3 -V
+    - run: echo Hello, world!
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
