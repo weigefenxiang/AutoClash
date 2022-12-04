@@ -5,7 +5,7 @@ on:
     branches:
     - master
     paths:
-    - /.github/workfliws/*
+    - .github/workfliws/*
 jobs:
   job1:
     runs-on: ubuntu-latest
