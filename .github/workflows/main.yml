@@ -3,6 +3,8 @@ name: AutoClash
 on:
   push: 
     branches:
+    - master
+    paths:
     - 'AutoClash/.github/workflows/main.yml'
 
 jobs:
