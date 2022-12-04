@@ -19,3 +19,5 @@ jobs:
     - run: docker build -t ubuntu/clash:0.1 docker/.
     - run: docker images
     - run: docker ps -a
+    
+    
