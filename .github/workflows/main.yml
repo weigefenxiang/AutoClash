@@ -1,9 +1,6 @@
 name: AutoClash
 
-on:
-  push: 
-    paths:
-      - 'AutoClash/.github/workflows/*'
+on: [push]
 
 jobs:
   job1:
