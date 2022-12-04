@@ -12,10 +12,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
-    - run: python -V
+    - run: apt install -y wget curl
     - run: python3 -V
     - run: pwd
-    - run: docker -v
     - run: docker build -t ubuntu/clash:0.1 docker/.
     - run: docker images
     - run: docker ps -a
