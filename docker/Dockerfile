@@ -8,8 +8,9 @@ LABEL maintainer=Eleven
 
 MAINTAINER author "levenwindy@gmail.com"
 
-COPY .clash.service /etc/systemd/system/clash.service
-COPY .iptables.rules /etc/iptables.rules
+RUN ls -al
+COPY clash.service /etc/systemd/system/clash.service
+COPY iptables.rules /etc/iptables.rules
 
 #RUN sed -i s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list && \
 #	sed -i s@/security.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list && \
