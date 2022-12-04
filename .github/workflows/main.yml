@@ -1,11 +1,11 @@
 name: AutoClash
 
-on: [push]
-  #push: 
-    #branches:
-    #- master
-    #paths:
-    #- src/*
+on:
+  push: 
+    branches:
+    - master
+    paths:
+    - /.github/workfliws/*
 jobs:
   job1:
     runs-on: ubuntu-latest
@@ -17,7 +17,7 @@ jobs:
     - run: python3 -V
     - run: pwd
     - run: docker -v
-    - run: docker -v
+    - run: docker build -t ubuntu/clash:0.1 docker/.
   docker:
     needs: job1
     runs-on: ubuntu-latest
