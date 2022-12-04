@@ -36,9 +36,6 @@ RUN	wget https://github.com/Dreamacro/clash/releases/download/v1.12.0/clash-linu
 	ip route add local 0.0.0.0/0 dev lo table 100 && \
 	iptables-restore /etc/iptables.rules
 	
-
-
-	
 WORKDIR /root
 
 EXPOSE 7980 7981 7982 553
