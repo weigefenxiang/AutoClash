@@ -8,10 +8,10 @@ LABEL maintainer=Eleven
 
 MAINTAINER author "levenwindy@gmail.com"
 
-RUN pwd
+ARG PWD=pwd
 
-COPY docker/clash.service /etc/systemd/system/clash.service
-COPY docker/iptables.rules /etc/iptables.rules
+COPY ${PWD}/docker/clash.service /etc/systemd/system/clash.service
+COPY ${PWD}/docker/iptables.rules /etc/iptables.rules
 
 #RUN sed -i s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list && \
 #	sed -i s@/security.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list && \
