@@ -18,9 +18,9 @@ COPY iptables.sh /etc/network/iptables.sh
 #	sed -i s@/security.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list && \
 #	apt update && \
 #	apt install -y wget unzip git
-RUN apt install -y wget unzip git
+RUN 	apt update && apt install -y wget unzip git
 	
-RUN	wget https://github.com/Dreamacro/clash/releases/download/v1.12.0/clash-linux-amd64-v1.12.0.gz && \
+RUN 	wget https://github.com/Dreamacro/clash/releases/download/v1.12.0/clash-linux-amd64-v1.12.0.gz && \
 	gunzip  clash-linux-amd64-v1.12.0.gz && mv clash-linux-amd64-v1.12.0 /usr/local/bin/clash && \
 	chmod a+x  /usr/local/bin/clash && mkdir -p  /config/clash && \
 	wget -O /config/clash/Country.mmdb https://www.sub-speeder.com/client-download/Country.mmdb && \
