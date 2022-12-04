@@ -8,6 +8,8 @@ LABEL maintainer=Eleven
 
 MAINTAINER author "levenwindy@gmail.com"
 
+RUN pwd
+
 COPY docker/clash.service /etc/systemd/system/clash.service
 COPY docker/iptables.rules /etc/iptables.rules
 
