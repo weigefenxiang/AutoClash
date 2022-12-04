@@ -5,7 +5,7 @@ on:
     branches:
     - master
     paths:
-    - AutoClash/.github/workflows/
+    - AutoClash/.github/workflows/main.yml
 
 jobs:
   job1:
