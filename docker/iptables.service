@@ -1,0 +1,11 @@
+[Unit]
+Description=iptables daemon
+
+[Service]
+Type=simple
+User=root    
+ExecStart=/usr/bin/bash /etc/network/iptables.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
