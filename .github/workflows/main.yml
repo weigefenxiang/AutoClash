@@ -9,11 +9,12 @@ jobs:
       TZ: Asia/Shanghai
       VERSION: "0.2"
       DOCKERHUB: "${{ secrets.DOCKERHUB_USERNAME }}/autoclash"
+      DHV: "${DOCKERHUB}:${VERSION}"
       
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@v3
-    - run: docker build -t ${DOCKERHUB}:${VERSION} docker/.
+    - run: docker build -t ${DHV} docker/.
     -
       name: Login to DockerHub
       uses: docker/login-action@v1 
@@ -23,7 +24,7 @@ jobs:
     - 
       name: Push
       run: docker push ${DOCKERHUB}:${VERSION}
-    - run: docker run -itd --privileged --name clash ${{ secrets.DOCKERHUB_USERNAME }}/autoclash:0.1 bash
+    - run: docker run -itd --privileged --name clash ${DHV} bash
     - run: docker ps
     - run: docker logs clash
     - run: docker exec clash ps aux
