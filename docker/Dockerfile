@@ -16,13 +16,14 @@ WORKDIR /root/.config/clash/logs
 #COPY iptables.rules /etc/iptables.rules
 ADD start.sh /root/.config/clash/start.sh
 ADD configDefault.yaml /root/.config/clash/configDefault.yaml
+ADD bash.txt /root/.config/clash/bash.txt
 
 #RUN	Requirement='wget unzip git net-tools iproute2 iptables' \
 #	&& sed -i s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list \
 #	&& sed -i s@/security.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list \
 #	&& apt update && apt install -y $Requirement
 	
-RUN	Requirement='wget unzip git net-tools iproute2 iptables' \
+RUN	Requirement='wget unzip git net-tools iproute2 iptables curl' \
         && Delment='wget unzip' \
 	&& apt update && apt install -y $Requirement \
 	&& wget https://github.com/Dreamacro/clash/releases/download/v1.12.0/clash-linux-amd64-v1.12.0.gz \
@@ -38,7 +39,9 @@ RUN	Requirement='wget unzip git net-tools iproute2 iptables' \
         && apt purge -y $Delment && apt autoremove -y \
 	&& rm -rf /var/lib/apt/lists/* && apt clean \
 	&& sed -i s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list \
-	&& sed -i s@/security.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list
+	&& sed -i s@/security.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list \
+	&& cat /root/.config/clash/bash.txt >> /etc/profile \
+	&& cat /root/.config/clash/bash.txt >> /etc/bash.bashrc
 
 WORKDIR /root/.config/clash
 
