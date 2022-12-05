@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: echo "${DOCKERHUB}:${VERSION}"
-    - run: docker build -t ${DOCKERHUB}:${VERSION} docker/.
+    - run: docker build -t "${DOCKERHUB}:${VERSION}" docker/.
     -
       name: Login to DockerHub
       uses: docker/login-action@v1 
@@ -23,7 +23,7 @@ jobs:
     - 
       name: Push
       run: docker push ${DOCKERHUB}:${VERSION}
-    - run: docker run -itd --privileged --name=clash ${DOCKERHUB}:${VERSION} bash
+    - run: docker run -itd --privileged --name=clash "${DOCKERHUB}:${VERSION}" bash
     - run: docker ps
     - run: docker ps -a
     - run: docker logs clash
