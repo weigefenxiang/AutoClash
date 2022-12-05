@@ -34,10 +34,10 @@ RUN	wget https://github.com/Dreamacro/clash/releases/download/v1.12.0/clash-linu
 	&& wget  -O /config/clash/configFree.yaml https://oss.v2rayse.com/proxies/data/2022-12-03/rIWSSA.yaml \
 	&& cat /config/clash/configDefault.yaml /config/clash/configFree.yaml > /config/clash/config.yaml  \
 	&& echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf \
-	&& sysctl -p \
-        && apt purge wget && apt purge unzip \
-	&& apt autoremove
+	&& sysctl -p
  
+RUN     apt purge wget && apt purge unzip \
+	&& apt autoremove
 
 WORKDIR /config/clash
 
