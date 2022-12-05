@@ -20,7 +20,7 @@ jobs:
     - 
       name: Push
       run: docker push $DH:$VER
-    - run: docker run -itd --privileged --name=clash ${{ secrets.DOCKERHUB_USERNAME }}/autoclash:0.2 bash
+    - run: docker run -itd --privileged --name=clash $DH:$VER bash
     - run: docker ps
     - run: docker ps -a
     - run: docker logs clash
