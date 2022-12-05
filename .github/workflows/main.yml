@@ -10,8 +10,7 @@ jobs:
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@v3
-    - run: DHV="$DH:$VER"
-    - run: docker build -t $DHV docker/.
+    - run: docker build -t $DH:$VER docker/.
     -
       name: Login to DockerHub
       uses: docker/login-action@v1 
@@ -20,8 +19,8 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - 
       name: Push
-      run: docker push $DHV
-    - run: docker run -itd --privileged --name=clash $DHV bash
+      run: docker push $DH:$VER
+    - run: docker run -itd --privileged --name=clash $DH:$VER bash
     - run: docker ps
     - run: docker ps -a
     - run: docker logs clash
@@ -31,8 +30,3 @@ jobs:
     - run: docker exec clash ps aux
     - run: docker logs clash
     - run: docker exec clash echo 'Direct ip' ;curl -s cip.cc | sed '4,100d' ; echo ''; echo 'Proxy ip' ; curl icanhazip.com
-
-
-
-
-
