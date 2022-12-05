@@ -1,12 +1,13 @@
 name: AutoClash
-
+env:
+  VERSION: 0.2
 on: [push]
 jobs:
   job1:
     runs-on: ubuntu-latest
     env:
       TZ: Asia/Shanghai
-      DHV: ${{ secrets.DOCKERHUB_USERNAME }}/autoclash:0.2
+      DHV: ${{ secrets.DOCKERHUB_USERNAME }}/autoclash:${VERSION}
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@v3
