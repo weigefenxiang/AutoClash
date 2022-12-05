@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TZ: Asia/Shanghai
-      VERSION: 0.2
+      VERSION: "0.2"
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@v3
