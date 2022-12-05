@@ -28,6 +28,7 @@ jobs:
     - run: ps aux
     - run: ./start.sh
     - run: ps aux
+    - run: speed
 
 
 
