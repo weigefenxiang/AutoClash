@@ -8,14 +8,14 @@ LABEL maintainer=Eleven
 
 MAINTAINER author "levenwindy@gmail.com"
 
-WORKDIR /config/clash
+WORKDIR /root/.config/clash
 
 #RUN ls -al
 #COPY clash.service /etc/systemd/system/clash.service
 #COPY iptables.service /etc/systemd/system/iptables.service
 #COPY iptables.rules /etc/iptables.rules
-ADD start.sh /config/clash/start.sh
-ADD configDefault.yaml /config/clash/configDefault.yaml
+ADD start.sh /root/.config/clash/start.sh
+ADD configDefault.yaml /root/.config/clash/configDefault.yaml
 
 #RUN	Requirement='wget unzip git net-tools iproute2 iptables' \
 #	&& sed -i s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list \
@@ -27,18 +27,18 @@ RUN	Requirement='wget unzip git net-tools iproute2 iptables' \
 	&& apt update && apt install -y $Requirement \
 	&& wget https://github.com/Dreamacro/clash/releases/download/v1.12.0/clash-linux-amd64-v1.12.0.gz \
 	&& gunzip  clash-linux-amd64-v1.12.0.gz && mv clash-linux-amd64-v1.12.0 /usr/local/bin/clash \
-	&& chmod a+x  /usr/local/bin/clash && mkdir -p  /config/clash \
-        && chmod +x /config/clash/start.sh \
-	&& wget -O /config/clash/Country.mmdb https://github.com/Dreamacro/maxmind-geoip/blob/release/Country.mmdb \
-	&& git clone -b gh-pages --depth 1  https://github.com/haishanh/yacd.git  /config/clash/dashboard \
-	&& wget  -O /config/clash/configFree.yaml https://oss.v2rayse.com/proxies/data/2022-12-03/rIWSSA.yaml \
-	&& cat /config/clash/configDefault.yaml /config/clash/configFree.yaml > /config/clash/config.yaml  \
+	&& chmod a+x  /usr/local/bin/clash  \
+        && chmod +x /root/.config/clash/start.sh \
+	&& wget -O /root/.config/clash/Country.mmdb https://github.com/Dreamacro/maxmind-geoip/blob/release/Country.mmdb \
+	&& git clone -b gh-pages --depth 1  https://github.com/haishanh/yacd.git  /root/.config/clash/dashboard \
+	&& wget  -O /root/.config/clash/configFree.yaml https://oss.v2rayse.com/proxies/data/2022-12-03/rIWSSA.yaml \
+	&& cat /root/.config/clash/configDefault.yaml /root/.config/clash/configFree.yaml > /root/.config/clash/config.yaml  \
 	&& echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf \
 	&& sysctl -p \
         && apt purge -y wget && apt purge -y unzip \
 	&& apt autoremove -y
 
-WORKDIR /config/clash
+WORKDIR /root/.config/clash
 
 EXPOSE 7980 7981 7982 553 53
 	
