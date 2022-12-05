@@ -21,7 +21,7 @@ jobs:
     - 
       name: Push
       run: docker push levenwindy/autoclash:0.1
-    - run: docker run --name clash  -d --privileged levenwindy/autoclash:0.1 bash
+    - run: docker run --name clash  -d --privileged ${{ secrets.DOCKERHUB_USERNAME }}/autoclash:0.1 bash
     - run: docker ps -a 
     - run: docker logs clash
 
