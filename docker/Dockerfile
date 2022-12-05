@@ -8,7 +8,7 @@ LABEL maintainer=Eleven
 
 MAINTAINER author "levenwindy@gmail.com"
 
-WORKDIR /root/.config/clash
+WORKDIR /root/.config/clash/logs
 
 #RUN ls -al
 #COPY clash.service /etc/systemd/system/clash.service
