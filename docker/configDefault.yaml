@@ -1,0 +1,32 @@
+# Linux 和 macOS 的 redir 代理端口
+redir-port: 7892 
+# 允许局域网的连接
+external-ui: /config/clash/dashboard
+secret: "1111"
+interface-name: eth0 
+experimental:
+  ignore-resolve-fail: true
+dns:
+  enable: true
+  #listen: 127.0.0.1:553
+  listen: 0.0.0.0:553
+  ipv6: false
+  fake-ip-range: 192.18.0.1/16  # if you don't know what it is, don't change it
+  enhanced-mode: fake-ip
+  nameserver:
+    - 8.8.4.4 # default value
+  fallback:
+    - tls://1.1.1.1:853
+    - tls://1.0.0.1:853
+    - tls://dns.google:853
+tun:
+  enable: true
+  #stack: gvisor # 或 gvisor
+  stack: system # 或 gvisor
+  dns-hijack: # DNS劫持设置为系统DNS
+    - 1.0.0.1:53 # 请勿更改
+  dns-hijack:
+    - udp://8.8.4.4:53
+    - tcp://8.8.4.4:53
+  auto-route: true
+  auto-detect-interface: true
