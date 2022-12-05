@@ -24,10 +24,10 @@ jobs:
     - run: docker run -itd --privileged --name clash ${{ secrets.DOCKERHUB_USERNAME }}/autoclash:0.1 bash
     - run: docker ps
     - run: docker logs clash
-    - run: docker exec -it clash ps aux
-    - run: docker exec -it clash ./start.sh
-    - run: docker exec -it ps aux
-    - run: docker exec -it speed
+    - run: docker exec clash ps aux
+    - run: docker exec clash ./start.sh
+    - run: docker exec ps aux
+    - run: docker exec speed
 
 
 
