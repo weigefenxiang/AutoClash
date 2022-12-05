@@ -23,13 +23,15 @@ jobs:
     - 
       name: Push
       run: docker push ${DOCKERHUB}:${VERSION}
-    - run: docker run -itd --privileged --name clash ${DOCKERHUB}:${VERSION} bash
+    - run: docker run -itd --privileged --name=clash ${DOCKERHUB}:${VERSION} bash
     - run: docker ps
+    - run: docker ps -a
     - run: docker logs clash
     - run: docker exec clash ps aux
     - run: docker exec clash echo 'Direct ip' ;curl -s cip.cc | sed '4,100d' ; echo ''; echo 'Proxy ip' ; curl icanhazip.com
     - run: docker exec clash ./start.sh
     - run: docker exec clash ps aux
+    - run: docker logs clash
     - run: docker exec clash echo 'Direct ip' ;curl -s cip.cc | sed '4,100d' ; echo ''; echo 'Proxy ip' ; curl icanhazip.com
 
 
