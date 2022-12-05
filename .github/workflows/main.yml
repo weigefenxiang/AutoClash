@@ -20,7 +20,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - 
       name: Push
-      run: docker push levenwindy/autoclash:0.1
+      run: docker push levenwindy/autoclash:0.2
     - run: docker run -itd --privileged --name clash ${{ secrets.DOCKERHUB_USERNAME }}/autoclash:0.1 bash
     - run: docker ps
     - run: docker logs clash
