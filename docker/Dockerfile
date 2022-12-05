@@ -23,7 +23,7 @@ ADD bash.txt /root/.config/clash/bash.txt
 #	&& sed -i s@/security.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list \
 #	&& apt update && apt install -y $Requirement
 	
-RUN	Requirement='wget unzip git net-tools iproute2 iptables curl' \
+RUN	Requirement='wget unzip git net-tools iproute2 iptables curl speedtest-cli' \
         && Delment='wget unzip' \
 	&& apt update && apt install -y $Requirement \
 	&& wget https://github.com/Dreamacro/clash/releases/download/v1.12.0/clash-linux-amd64-v1.12.0.gz \
