@@ -38,8 +38,7 @@ RUN	Requirement='wget unzip git net-tools iproute2 iptables' \
         && apt purge -y $Requirement && apt autoremove -y \
 	&& rm -rf /var/lib/apt/lists/* && apt-get clean \
 	&& sed -i s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list \
-	&& sed -i s@/security.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list \
-	&& apt update 
+	&& sed -i s@/security.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list
 
 WORKDIR /root/.config/clash
 
