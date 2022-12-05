@@ -2,7 +2,7 @@
 #  docker build -t ubuntu/clash:0.1 .       构建
 # docker run -itd  --privileged  --name clash -P ubuntu/clash:0.1
 
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 LABEL maintainer=Eleven
 
