@@ -36,8 +36,8 @@ RUN	wget https://github.com/Dreamacro/clash/releases/download/v1.12.0/clash-linu
 	&& echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf \
 	&& sysctl -p
  
-RUN     apt purge wget && apt purge unzip \
-	&& apt autoremove
+RUN     apt purge -y wget && apt purge -y unzip \
+	&& apt autoremove -y
 
 WORKDIR /config/clash
 
