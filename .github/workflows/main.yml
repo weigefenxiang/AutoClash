@@ -7,11 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TZ: Asia/Shanghai
+      VERSION: "0.1"
+      DOCKERHUB: "${{ secrets.DOCKERHUB_USERNAME }}/autoclash"
       
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@v3
-    - run: docker build -t levenwindy/autoclash:0.1 docker/.
+    - run: docker build -t ${DOCKERHUB}:${VERSION} docker/.
     -
       name: Login to DockerHub
       uses: docker/login-action@v1 
@@ -20,7 +22,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - 
       name: Push
-      run: docker push levenwindy/autoclash:0.2
+      run: docker push ${DOCKERHUB}:${VERSION}
     - run: docker run -itd --privileged --name clash ${{ secrets.DOCKERHUB_USERNAME }}/autoclash:0.1 bash
     - run: docker ps
     - run: docker logs clash
