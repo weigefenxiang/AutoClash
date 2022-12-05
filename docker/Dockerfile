@@ -30,6 +30,7 @@ RUN	Requirement='wget unzip git net-tools iproute2 iptables' \
 	&& chmod a+x  /usr/local/bin/clash && mkdir -p  /config/clash \
         && chmod +x /config/clash/start.sh \
 	&& wget -O /config/clash/Country.mmdb https://github.com/Dreamacro/maxmind-geoip/blob/release/Country.mmdb \
+        && mkdir -P /.config/clash/ && cp /config/clash/Country.mmdb /.config/clash/Country.mmdb
 	&& git clone -b gh-pages --depth 1  https://github.com/haishanh/yacd.git  /config/clash/dashboard \
 	&& wget  -O /config/clash/configFree.yaml https://oss.v2rayse.com/proxies/data/2022-12-03/rIWSSA.yaml \
 	&& cat /config/clash/configDefault.yaml /config/clash/configFree.yaml > /config/clash/config.yaml  \
