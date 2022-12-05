@@ -23,6 +23,7 @@ ADD configDefault.yaml /config/clash/configDefault.yaml
 #	&& apt update && apt install -y $Requirement
 	
 RUN	Requirement='wget unzip git net-tools iproute2 iptables' \
+        && Delment='wget unzip' \
 	&& apt update && apt install -y $Requirement
 	
 RUN	wget https://github.com/Dreamacro/clash/releases/download/v1.12.0/clash-linux-amd64-v1.12.0.gz \
@@ -33,8 +34,10 @@ RUN	wget https://github.com/Dreamacro/clash/releases/download/v1.12.0/clash-linu
 	&& wget  -O /config/clash/configFree.yaml https://oss.v2rayse.com/proxies/data/2022-12-03/rIWSSA.yaml \
 	&& cat /config/clash/configDefault.yaml /config/clash/configFree.yaml > /config/clash/config.yaml  \
 	&& echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf \
-	&& sysctl -p
-	
+	&& sysctl -p \
+	&& apt purge $Delment && apt autoremove && apt autoclean
+ 
+
 WORKDIR /config/clash
 
 EXPOSE 7980 7981 7982 553 53
