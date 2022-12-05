@@ -25,6 +25,7 @@ jobs:
     - run: docker ps
     - run: docker logs clash
     - run: docker exec clash ps aux
+    - run: docker exec clash echo 'Direct ip' ;curl -s cip.cc | sed '4,100d' ; echo ''; echo 'Proxy ip' ; curl icanhazip.com
     - run: docker exec clash ./start.sh
     - run: docker exec clash ps aux
     - run: docker exec clash echo 'Direct ip' ;curl -s cip.cc | sed '4,100d' ; echo ''; echo 'Proxy ip' ; curl icanhazip.com
