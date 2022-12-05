@@ -41,5 +41,7 @@ iptables -t nat -A PREROUTING -j TCP_REDIR                        #转发来自�
 
 # 开始
 #/usr/local/bin/clash -d /root/.config/clash
+proxy
+#export all_proxy=socks5://127.0.0.1:7891 ; export http_proxy=http://127.0.0.1:7890 ; export https_proxy=http://127.0.0.1:7890
 nohup /usr/local/bin/clash -d /root/.config/clash >>/root/.config/clash/logs/log.txt 2>&1 &
 
