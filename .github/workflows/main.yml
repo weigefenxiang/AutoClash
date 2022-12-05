@@ -15,7 +15,7 @@ jobs:
     - run: docker images
     - run: docker ps -a
     - name: Login
-      uses: docker/login-action@v3
+      uses: docker/login-action@v1
       with:
           username: "${{ secrets.REGISTRY_USERNAME }}"
           password: "${{ secrets.REGISTRY_PASSWORD }}"
