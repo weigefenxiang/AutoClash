@@ -5,6 +5,7 @@ env:
   VERSION: "0.2"
   DOCKERHUB: "${{ secrets.DOCKERHUB_USERNAME }}/autoclash"
   DHV: "${{ secrets.DOCKERHUB_USERNAME }}/autoclash:${{ VERSION }}"
+  
 jobs:
   job1:
     runs-on: ubuntu-latest
