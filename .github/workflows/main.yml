@@ -21,7 +21,7 @@ jobs:
     - 
       name: Push
       run: docker push $DHV
-    - run: docker run -itd --privileged --name=clash $DHV bash
+    - run: docker run -itd --privileged --name=clash ${DHV} bash
     - run: docker ps
     - run: docker ps -a
     - run: docker logs clash
