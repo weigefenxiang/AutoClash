@@ -41,7 +41,5 @@ RUN	Requirement='wget unzip git net-tools iproute2 iptables' \
 WORKDIR /config/clash
 
 EXPOSE 7980 7981 7982 553 53
-
-RUN bash /config/clash/start.sh &
 	
-CMD ["/bin/bash"]
+CMD ["/bin/bash","/config/clash/start.sh","&"] 
