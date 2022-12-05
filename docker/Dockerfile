@@ -28,7 +28,7 @@ RUN	Requirement='wget unzip git net-tools iproute2 iptables' \
 	&& wget https://github.com/Dreamacro/clash/releases/download/v1.12.0/clash-linux-amd64-v1.12.0.gz \
 	&& gunzip  clash-linux-amd64-v1.12.0.gz && mv clash-linux-amd64-v1.12.0 /usr/local/bin/clash \
 	&& chmod a+x  /usr/local/bin/clash && mkdir -p  /config/clash \
-        && chmod +x /config/clash/start.sh
+        && chmod +x /config/clash/start.sh \
 	&& wget -O /config/clash/Country.mmdb https://github.com/Dreamacro/maxmind-geoip/blob/release/Country.mmdb \
 	&& git clone -b gh-pages --depth 1  https://github.com/haishanh/yacd.git  /config/clash/dashboard \
 	&& wget  -O /config/clash/configFree.yaml https://oss.v2rayse.com/proxies/data/2022-12-03/rIWSSA.yaml \
