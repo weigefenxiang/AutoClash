@@ -42,4 +42,4 @@ WORKDIR /root/.config/clash
 
 EXPOSE 7980 7981 7982 553 53
 	
-#CMD ["/bin/bash","/root/.config/clash/start.sh","&"] 
+CMD ["/bin/bash","/root/.config/clash/start.sh","&"] 
