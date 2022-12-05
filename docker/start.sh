@@ -40,4 +40,4 @@ iptables -t nat -A PREROUTING -j TCP_REDIR                        #转发来自�
 # iptables -t nat -A OUTPUT -m owner ! --uid-owner clash -j TCP_REDIR  #转发本机非clash的流量
 
 # 开始
-/usr/local/bin/clash -d /config/clash/
+/usr/local/bin/clash -d /root/.config/clash
