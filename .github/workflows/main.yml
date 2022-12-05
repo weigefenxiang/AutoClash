@@ -26,8 +26,8 @@ jobs:
     - run: docker logs clash
     - run: docker exec clash ps aux
     - run: docker exec clash ./start.sh
-    - run: docker exec ps aux
-    - run: docker exec speed
+    - run: docker exec clash ps aux
+    - run: docker exec clash speed
 
 
 
