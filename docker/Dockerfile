@@ -35,7 +35,8 @@ RUN	Requirement='wget unzip git net-tools iproute2 iptables' \
 	&& cat /root/.config/clash/configDefault.yaml /root/.config/clash/configFree.yaml > /root/.config/clash/config.yaml  \
 	&& echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf \
 	&& sysctl -p \
-        && apt purge -y $Requirement && apt autoremove -y && apt clean \
+        && apt purge -y $Delment && apt autoremove -y \
+	&& rm -rf /var/lib/apt/lists/* && apt clean \
 	&& sed -i s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list \
 	&& sed -i s@/security.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list
 
