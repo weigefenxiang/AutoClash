@@ -1,7 +1,7 @@
 # Linux 和 macOS 的 redir 代理端口
 redir-port: 7892 
 # 允许局域网的连接
-external-ui: /config/clash/dashboard
+external-ui: /root/.config/clash/dashboard
 secret: "1111"
 interface-name: eth0 
 experimental:
