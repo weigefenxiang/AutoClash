@@ -41,3 +41,4 @@ iptables -t nat -A PREROUTING -j TCP_REDIR                        #转发来自�
 
 # 开始
 /usr/local/bin/clash -d /root/.config/clash
+
