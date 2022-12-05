@@ -11,7 +11,7 @@ jobs:
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@v3
-    - run: docker build -t autoclash:0.1 docker/.
+    - run: docker build -t levenwindy/autoclash:0.1 docker/.
     - run: docker images
     - run: docker ps -a
     -
