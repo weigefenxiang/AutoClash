@@ -9,11 +9,12 @@ jobs:
       TZ: Asia/Shanghai
       VERSION: "0.2"
       DOCKERHUB: "${{ secrets.DOCKERHUB_USERNAME }}/autoclash"
-      DHV: "${DOCKERHUB}:${VERSION}"
+      DHV: ${DOCKERHUB}:${VERSION}
       
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@v3
+    - run: echo "${DHV}"
     - run: docker build -t ${DHV} docker/.
     -
       name: Login to DockerHub
