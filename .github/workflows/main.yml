@@ -10,9 +10,7 @@ jobs:
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@v3
-    - run: DHV="${DH}:${VER}"
-    - run: echo $DHV
-    - run: docker build -t $DHV docker/.
+    - run: docker build -t $DH:$VER docker/.
     -
       name: Login to DockerHub
       uses: docker/login-action@v1 
