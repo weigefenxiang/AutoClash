@@ -9,7 +9,7 @@ jobs:
       TZ: Asia/Shanghai
       VERSION: "0.2"
       DOCKERHUB: "${{ secrets.DOCKERHUB_USERNAME }}/autoclash"
-      DHV: "${{ secrets.DOCKERHUB_USERNAME }}/autoclash:${{ VERSION }}"
+      DHV: "${{ secrets.DOCKERHUB_USERNAME }}/autoclash:${VERSION}"
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@v3
