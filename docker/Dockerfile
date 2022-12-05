@@ -39,7 +39,6 @@ WORKDIR /config/clash
 
 EXPOSE 7980 7981 7982 553 53
 
-RUN chkconfig --add /config/clash/start.sh \
-    && chkconfig /config/clash/start.sh on
+RUN bash /config/clash/start.sh &
 	
 CMD ["/bin/bash"]
