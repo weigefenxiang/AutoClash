@@ -15,6 +15,7 @@ WORKDIR /config/clash
 #COPY iptables.service /etc/systemd/system/iptables.service
 #COPY iptables.rules /etc/iptables.rules
 ADD start.sh /config/clash/start.sh
+ADD configDefault.yaml /config/clash/configDefault.yaml
 
 #RUN	Requirement='wget unzip git net-tools iproute2 iptables' \
 #	&& sed -i s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list \
