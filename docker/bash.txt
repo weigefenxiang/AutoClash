@@ -1,0 +1,6 @@
+
+# 代理 查看ip
+alias outip="echo 'Proxy ip' ; curl icanhazip.com"
+alias myip="echo 'Direct ip' ;curl -s cip.cc | sed '4,100d' ; echo ''; outip "
+alias proxy='export all_proxy=socks5://127.0.0.1:7891 ; export http_proxy=http://127.0.0.1:7890 ; export https_proxy=http://127.0.0.1:7890 ; myip'
+alias unproxy='unset all_proxy http_proxy https_proxy  ; myip'
