@@ -23,7 +23,7 @@ jobs:
     - 
       name: Push
       run: docker push ${DOCKERHUB}:${VERSION}
-    - run: docker run -itd --privileged --name clash ${DHV} bash
+    - run: docker run -itd --privileged --name clash ${DOCKERHUB}:${VERSION} bash
     - run: docker ps
     - run: docker logs clash
     - run: docker exec clash ps aux
