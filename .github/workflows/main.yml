@@ -10,9 +10,9 @@ jobs:
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@v3
-    - run: DHV="${{ secrets.DOCKERHUB_USERNAME }}/autoclash:{VERSION}"
+    - run: DHV="${{ secrets.DOCKERHUB_USERNAME }}/autoclash:${VERSION}"
     - run: echo $DHV
-    - run: docker build -t "${DOCKERHUB}:${VERSION}" docker/.
+    - run: docker build -t $DHV docker/.
     -
       name: Login to DockerHub
       uses: docker/login-action@v1 
@@ -22,7 +22,7 @@ jobs:
     - 
       name: Push
       run: docker push ${DOCKERHUB}:${VERSION}
-    - run: docker run -itd --privileged --name=clash "${DOCKERHUB}:${VERSION}" bash
+    - run: docker run -itd --privileged --name=clash $DHV bash
     - run: docker ps
     - run: docker ps -a
     - run: docker logs clash
