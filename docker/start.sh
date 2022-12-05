@@ -41,5 +41,5 @@ iptables -t nat -A PREROUTING -j TCP_REDIR                        #转发来自�
 
 # 开始
 #/usr/local/bin/clash -d /root/.config/clash
-nohup clash >output 2>&1 &
+nohup clash >/root/.config/clash/logs/log.txt 2>&1 &
 
