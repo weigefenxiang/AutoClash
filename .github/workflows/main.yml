@@ -41,3 +41,4 @@ jobs:
     - run: docker logs clash
     - run: docker exec clash echo 'Direct ip' ;curl -s cip.cc | sed '4,100d' ; echo ''; echo 'Proxy ip' ; curl icanhazip.com
     
+# 
