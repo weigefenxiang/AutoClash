@@ -51,7 +51,7 @@ WORKDIR /root/.config/clash
 
 EXPOSE 7980 7981 7982 553 53
 	
-# ENTRYPOINT /root/.config/clash/start.sh && tail -f /dev/null
+ENTRYPOINT /root/.config/clash/start.sh && tail -f /dev/null
 # ENTRYPOINT /root/.config/clash/start.sh 不行!
 # CMD ["/root/.config/clash/start.sh"]    不行!
 # CMD ["/root/.config/clash/start.sh"]    不行!
