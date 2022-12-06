@@ -22,7 +22,10 @@ ADD bash.txt /root/.config/clash/bash.txt
 #	&& sed -i s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list \
 #	&& sed -i s@/security.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list \
 #	&& apt update && apt install -y $Requirement
-	
+RUN     echo -e "set encoding=utf-8\nset fileencodings=ucs-bom,utf-8,cp936,gb18030,latin1\nset termencoding=gb18030\nset expandtab\nset ts=4\nset shiftwidth=4\nset nu\nsyntax on" >> /root/.vimrc \
+        && cat  /root/.vimrc \
+	&& \\asd
+
 RUN	Requirement='wget unzip git net-tools iproute2 iptables curl speedtest-cli vim' \
         && Delment='wget unzip' \
 	&& apt update && apt install -y $Requirement \
@@ -41,7 +44,7 @@ RUN	Requirement='wget unzip git net-tools iproute2 iptables curl speedtest-cli v
 	&& cat /root/.config/clash/bash.txt >> /etc/profile \
 	&& cat /root/.config/clash/bash.txt >> /etc/bash.bashrc
 
-RUN     echo -e "set encoding=utf-8\nset fileencodings=ucs-bom,utf-8,cp936,gb18030,latin1\nset termencoding=gb18030\nset expandtab\nset ts=4\nset shiftwidth=4\nset nu\nsyntax on" >> /root/.vimrc \
+RUN     echo "" \
 	&& sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
 	&& sed -i s@/security.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list && apt update
 	
