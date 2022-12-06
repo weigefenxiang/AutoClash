@@ -1,8 +1,11 @@
 name: AutoClash
 on:
   push:
-    paths-ignore:
-      - 'docker/**'
+    paths:
+      #- 'sub-project/**'
+      - '!docker/**'
+    #paths-ignore:
+      #- 'docker/**'
 jobs:
   job1:
     runs-on: ubuntu-latest
