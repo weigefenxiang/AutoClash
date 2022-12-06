@@ -24,7 +24,8 @@ ADD bash.txt /root/.config/clash/bash.txt
 #	&& apt update && apt install -y $Requirement
 	
 RUN	Requirement='wget unzip git net-tools iproute2 iptables curl speedtest-cli vim' \
-        && Delment='wget unzip' \&& apt update && apt install -y $Requirement \
+        && Delment='wget unzip' \
+	&& apt update && apt install -y $Requirement \
 	&& wget https://github.com/Dreamacro/clash/releases/download/v1.12.0/clash-linux-amd64-v1.12.0.gz \
 	&& gunzip  clash-linux-amd64-v1.12.0.gz && mv clash-linux-amd64-v1.12.0 /usr/local/bin/clash \
 	&& chmod a+x  /usr/local/bin/clash  \
