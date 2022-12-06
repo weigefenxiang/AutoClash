@@ -2,7 +2,7 @@
 set fileencodings=utf-8
 set termencoding=utf-8
 set fileformats=unix
-set encoding=prc
+set encoding=utf-8
 
 " 使用vim的modeline来设置当前文件的textwidth,
 " 避免输入超过78个字符时自动换行
