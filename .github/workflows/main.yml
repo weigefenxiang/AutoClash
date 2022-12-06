@@ -10,7 +10,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     env:
-      VER: "0.1"
+      VER: "0.2"
       DH: "${{ secrets.DOCKERHUB_USERNAME }}/autoclash"
       TZ: Asia/Shanghai
     timeout-minutes: 10
