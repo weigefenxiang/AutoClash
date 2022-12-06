@@ -8,3 +8,7 @@ alias speed='speedtest-cli'
 
 # 插入代理
 export all_proxy=socks5://127.0.0.1:7891 ; export http_proxy=http://127.0.0.1:7890 ; export https_proxy=http://127.0.0.1:7890
+
+# 默认utf8
+LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
