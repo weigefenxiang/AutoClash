@@ -43,7 +43,7 @@ RUN	Requirement='wget unzip git net-tools iproute2 iptables curl speedtest-cli v
 
 RUN     sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
 	&& sed -i s@/security.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
-	#&& apt update
+	&& apt update
 	
 
 WORKDIR /root/.config/clash
