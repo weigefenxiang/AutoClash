@@ -42,15 +42,15 @@ RUN	Requirement='wget unzip git net-tools iproute2 iptables curl speedtest-cli v
 	&& cat /root/.config/clash/bash.txt >> /etc/bash.bashrc
 
 RUN     sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
-	&& sed -i s@/security.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
-	&& apt update
+	&& sed -i s@/security.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
+	#&& apt update
 	
 
 WORKDIR /root/.config/clash
 
 EXPOSE 7980 7981 7982 553 53
 	
-# ENTRYPOINT /root/.config/clash/start.sh && tail -f /dev/null
+ENTRYPOINT /root/.config/clash/start.sh && tail -f /dev/null
 # ENTRYPOINT /root/.config/clash/start.sh 不行!
 # CMD ["/root/.config/clash/start.sh"]    不行!
 # CMD ["/root/.config/clash/start.sh"]    不行!
