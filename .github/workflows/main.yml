@@ -25,8 +25,9 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - 
       name: Push
-    - run: docker push $DH:$VER
-    - run: docker push $DH
+      run: |
+           docker push $DH:$VER
+           docker push $DH
     - run: docker run -itd --privileged --name=clash $DH:$VER bash
     - run: docker ps
     - run: docker ps -a
