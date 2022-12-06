@@ -23,7 +23,7 @@ ADD bash.txt /root/.config/clash/bash.txt
 #	&& sed -i s@/security.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list \
 #	&& apt update && apt install -y $Requirement
 	
-RUN	Requirement='wget unzip git net-tools iproute2 iptables curl speedtest-cli' \
+RUN	Requirement='wget unzip git net-tools iproute2 iptables curl speedtest-cli vim' \
         && Delment='wget unzip' \
 	&& apt update && apt install -y $Requirement \
 	&& wget https://github.com/Dreamacro/clash/releases/download/v1.12.0/clash-linux-amd64-v1.12.0.gz \
@@ -38,16 +38,19 @@ RUN	Requirement='wget unzip git net-tools iproute2 iptables curl speedtest-cli' 
 	&& sysctl -p \
         && apt purge -y $Delment && apt autoremove -y \
 	&& rm -rf /var/lib/apt/lists/* && apt clean \
-	&& sed -i s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list \
-	&& sed -i s@/security.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g /etc/apt/sources.list \
 	&& cat /root/.config/clash/bash.txt >> /etc/profile \
 	&& cat /root/.config/clash/bash.txt >> /etc/bash.bashrc
+
+RUN     sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
+	&& sed -i s@/security.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
+	&& apt update
+	
 
 WORKDIR /root/.config/clash
 
 EXPOSE 7980 7981 7982 553 53
 	
-#ENTRYPOINT /root/.config/clash/start.sh && tail -f /dev/null
+ENTRYPOINT /root/.config/clash/start.sh && tail -f /dev/null
 # ENTRYPOINT /root/.config/clash/start.sh 不行!
 # CMD ["/root/.config/clash/start.sh"]    不行!
 # CMD ["/root/.config/clash/start.sh"]    不行!
