@@ -16,7 +16,7 @@ jobs:
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@v3
-    - run: docker build -t $DH docker/.
+    - run: docker build -t image1 docker/.
     -
       name: Login to DockerHub
       uses: docker/login-action@v1 
@@ -26,9 +26,11 @@ jobs:
     - 
       name: Push
       run: |
+          docker tag image1 $DH:$VER
           docker push $DH:$VER
+          docker tag image1 $DH
           docker push $DH
-    - run: docker run -itd --privileged --name=clash $DH:$VER bash
+    - run: docker run -itd --privileged --name=clash image1 bash
     - run: docker ps
     - run: docker ps -a
     - run: docker logs clash
