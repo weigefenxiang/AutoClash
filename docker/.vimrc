@@ -1,3 +1,9 @@
+" 设定编码
+set fileencodings=utf-8,gb2312,gbk,gb18030
+set termencoding=utf-8
+set fileformats=unix
+set encoding=prc
+
 " 使用vim的modeline来设置当前文件的textwidth,
 " 避免输入超过78个字符时自动换行
 " 使用:verbose set textwidth?命令可以看到vim默认
