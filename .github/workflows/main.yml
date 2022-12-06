@@ -2,7 +2,7 @@ name: AutoClash
 on:
   push:
     paths:
-      #- 'sub-project/**'
+      - '.github/**'
       - '!docker/**'
     #paths-ignore:
       #- 'docker/**'
